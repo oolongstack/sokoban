@@ -1,3 +1,4 @@
+export const FLOOR_NAME = "floor";
 export class Floor {
-  public name: string = "floor";
+  public name: string = FLOOR_NAME;
 }
