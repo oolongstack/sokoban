@@ -1,26 +1,9 @@
-export class Empty {
-  public name: string = "empty";
-}
-export class Floor {
-  public name: string = "floor";
-}
-export class Cargo {
-  public name: string = "cargo";
-}
-export class Wall {
-  public name: string = "wall";
-}
-export const rawMap: number[][] = [
-  [0, 0, 1, 1, 1, 1, 1, 0],
-  [1, 1, 1, 2, 2, 2, 1, 0],
-  [1, 2, 2, 2, 2, 2, 1, 0],
-  [1, 1, 1, 2, 2, 2, 1, 0],
-  [1, 2, 1, 1, 2, 2, 1, 0],
-  [1, 2, 1, 2, 2, 2, 1, 1],
-  [1, 2, 2, 2, 2, 2, 2, 1],
-  [1, 2, 2, 2, 2, 2, 2, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1],
-];
+import { Cargo } from "./Cargo";
+import { Empty } from "./Empty";
+import { Floor } from "./Floor";
+import { Wall } from "./Wall";
+
+export type Block = Empty | Floor | Cargo | Wall;
 
 export function initMap(rawMap: number[][]) {
   const len = rawMap.length;
@@ -29,7 +12,7 @@ export function initMap(rawMap: number[][]) {
     initialMap.push([]);
   }
 
-  const map: (Empty | Floor | Cargo | Wall)[][] = initialMap;
+  const map: Block[][] = initialMap;
 
   for (let i = 0; i < rawMap.length; i++) {
     for (let j = 0; j < rawMap[i].length; j++) {

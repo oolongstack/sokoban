@@ -1,5 +1,9 @@
 import { describe, it, expect } from "vitest";
-import { Cargo, Empty, Floor, Wall, initMap } from "./map";
+import { initMap } from "../map";
+import { Wall } from "../Wall";
+import { Cargo } from "../Cargo";
+import { Floor } from "../Floor";
+import { Empty } from "../Empty";
 
 describe("Map", () => {
   it("should init map", () => {
