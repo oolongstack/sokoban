@@ -5,7 +5,9 @@ import { Wall } from "./Wall";
 
 export type Block = Empty | Floor | Cargo | Wall;
 
-export function initMap(rawMap: number[][]) {
+export type Map = Block[][];
+
+export function initMap(rawMap: number[][]): Map {
   const len = rawMap.length;
   const initialMap = [];
   for (let i = 0; i < len; i++) {
