@@ -1,25 +1,12 @@
-export interface Player {
+import { Position } from "../composables/position";
+import { getMap } from "./map";
+import { wallCollisionLeft } from "./playerCollisionDetection";
+
+export interface Player extends Position {
   x: number;
   y: number;
 }
-
 let _player: Player;
-
-export function moveLeft() {
-  _player.x -= 1;
-}
-
-export function moveRight() {
-  _player.x += 1;
-}
-
-export function moveUp() {
-  _player.y -= 1;
-}
-
-export function moveDown() {
-  _player.y += 1;
-}
 
 export function getPlayer(): Player {
   return _player;
@@ -28,3 +15,10 @@ export function getPlayer(): Player {
 export function initPlayer(player: Player) {
   _player = player;
 }
+
+export const moveLeft = () => {
+  if (wallCollisionLeft(_player, getMap().map)) {
+    return;
+  }
+  _player.x--;
+};

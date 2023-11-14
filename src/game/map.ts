@@ -6,8 +6,11 @@ import { Wall } from "./Wall";
 export type Block = Empty | Floor | Cargo | Wall;
 
 export type Map = Block[][];
+let _rawMap: number[][];
+let _map: Map;
 
 export function initMap(rawMap: number[][]): Map {
+  _rawMap = rawMap;
   const len = rawMap.length;
   const initialMap = [];
   for (let i = 0; i < len; i++) {
@@ -34,5 +37,8 @@ export function initMap(rawMap: number[][]): Map {
     }
   }
 
+  _map = map;
   return map;
 }
+
+export const getMap = () => ({ map: _map, rawMap: _rawMap });

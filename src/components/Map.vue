@@ -5,7 +5,7 @@
         <component :is="getBlock(col)" />
       </div>
     </div>
-    <Player />
+    <Keeper />
   </div>
 </template>
 
@@ -18,7 +18,7 @@ import EmptyBlock from "./Empty.vue";
 import FloorBlock from "./Floor.vue";
 import WallBlock from "./Wall.vue";
 import CargoBlock from "./Cargo.vue";
-import Player from "./Player.vue";
+import Keeper from "./Keeper.vue";
 
 // import keeper from "@/assets/keeper.png";
 import { initMap } from "../game/map";
