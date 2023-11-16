@@ -5,11 +5,11 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, reactive } from "vue";
 import keeper from "@/assets/keeper.png";
-import { Player, initPlayer, moveLeft } from "../game/player.ts";
+import { Player, initPlayer, moveLeft, moveRight } from "../game/player.ts";
 import { usePosition } from "../composables/position";
 
 const player: Player = reactive({
-  x: 5,
+  x: 3,
   y: 1,
 });
 // 初始化玩家
@@ -23,7 +23,10 @@ function handleKeyup(e: KeyboardEvent) {
     case "ArrowLeft":
     case "KeyA":
       moveLeft();
-      console.log(player);
+      break;
+    case "ArrowRight":
+    case "KeyD":
+      moveRight();
       break;
     default:
       break;

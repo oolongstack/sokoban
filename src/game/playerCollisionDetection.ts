@@ -7,3 +7,9 @@ export function wallCollisionLeft(player: Player, map: Map) {
   const block = map[player.y][nextLeftPosition];
   return block.name === WALL_NAME;
 }
+
+export function wallCollisionRight(player: Player, map: Map) {
+  const nextLeftPosition = player.x + 1;
+  const block = map[player.y][nextLeftPosition];
+  return block.name === WALL_NAME;
+}

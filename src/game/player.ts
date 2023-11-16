@@ -1,6 +1,9 @@
 import { Position } from "../composables/position";
 import { getMap } from "./map";
-import { wallCollisionLeft } from "./playerCollisionDetection";
+import {
+  wallCollisionLeft,
+  wallCollisionRight,
+} from "./playerCollisionDetection";
 
 export interface Player extends Position {
   x: number;
@@ -21,4 +24,9 @@ export const moveLeft = () => {
     return;
   }
   _player.x--;
+};
+
+export const moveRight = () => {
+  if (wallCollisionRight(_player, getMap().map)) return;
+  _player.x++;
 };
