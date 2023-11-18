@@ -13,3 +13,15 @@ export function wallCollisionRight(player: Player, map: Map) {
   const block = map[player.y][nextLeftPosition];
   return block.name === WALL_NAME;
 }
+
+export function wallCollisionUp(player: Player, map: Map) {
+  const nextPosition = player.y - 1;
+  const block = map[nextPosition][player.x];
+  return block.name === WALL_NAME;
+}
+
+export function wallCollisionDown(player: Player, map: Map) {
+  const nextPosition = player.y + 1;
+  const block = map[nextPosition][player.x];
+  return block.name === WALL_NAME;
+}
